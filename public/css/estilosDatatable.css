@@ -5,3 +5,6 @@
 #example_paginate > ul > li.paginate_button.page-item a{
     text-decoration: none;
 }
+#imagenDT {
+    width: 20%;
+}
