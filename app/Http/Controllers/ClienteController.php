@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Venta;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -85,13 +86,9 @@ class ClienteController extends Controller
             'direccion' => 'required',
         ]);
 
-        $cliente = Cliente::find($id);
+        $nuevosDatos = request()->except(['_token', '_method']);
 
-        $cliente->nombre = $request->nombre;
-        $cliente->correo = $request->correo;
-        $cliente->telefono = $request->telefono;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        Cliente::where('id', '=', $id)->update($nuevosDatos);
 
         return redirect()->route('clientes.index');
     }
@@ -106,6 +103,18 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::where('id', $id);
         $cliente->delete();
+        return redirect()->route('clientes.index');
+    }
+
+    public function crearVenta($id){
+        return view('clientes.listaProductos');
+    }
+
+    public function registrarVenta(Request $request){
+        $nuevaVenta = new Venta();
+        $nuevaVenta->idCliente = $request->idCliente;
+        $nuevaVenta->idProducto = $request->idProducto;
+        $nuevaVenta->save();
         return redirect()->route('clientes.index');
     }
 }
