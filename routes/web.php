@@ -23,7 +23,7 @@ Route::resource('productos',ProductosController::class);
 Route::get('/clientes/', [ClienteController::class,'index'])->name('clientes.index');
 Route::get('/clientes/create', [ClienteController::class,'create'])->name('clientes.create');
 Route::post('/clientes/store', [ClienteController::class,'store'])->name('clientes.store');
-Route::get('/clientes/edit', [ClienteController::class,'edit'])->name('clientes.edit');
-Route::patch('/clientes/update', [ClienteController::class,'update'])->name('clientes.update');
-Route::delete('/clientes/destroy', [ClienteController::class,'destroy'])->name('clientes.destroy');
+Route::get('/clientes/edit/{id}', [ClienteController::class,'edit'])->name('clientes.edit');
+Route::patch('/clientes/update/{id}', [ClienteController::class,'update'])->name('clientes.update');
+Route::delete('/clientes/destroy/{id}', [ClienteController::class,'destroy'])->name('clientes.destroy');
 
