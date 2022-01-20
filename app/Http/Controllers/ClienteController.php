@@ -26,7 +26,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.almacenar');//
     }
 
     /**
@@ -37,7 +37,13 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $cliente = new Cliente(); //con nombre de modelo
+       $cliente->nombre=$request->nombre;
+       $cliente->correo=$request->correo;
+       $cliente->telefono=$request->telefono;
+       $cliente->direccion=$request->direccion;
+       $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
