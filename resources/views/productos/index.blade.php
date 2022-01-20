@@ -31,7 +31,7 @@
                         <td>{{ $producto->descripcion }}</td>
                         <td>{{ $producto->precio }}</td>
                         {{-- <td>{{ $producto->imagen }}</td> --}}
-                        <td><img src="{{ asset('storage').'/'.$producto->imagen}}" alt=""></td>
+                        <td><img id="imagenDT" src="{{ asset('storage').'/'.$producto->imagen}}" alt=""></td>
                         <td>
                             <a href="{{ route('productos.edit', $producto->producto_id) }}">
                                 <button class="btn btn-primary">
@@ -40,9 +40,9 @@
                             </a>
                             {{-- Formulario de borrado --}}
                             <form action="{{ route('productos.destroy',$producto->producto_id) }}" method="post">
-                                @method('DELETE');
+                                @method('DELETE')
                                 @csrf
-                                <button class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
                             </form>
                         </td>
                     </tr>
