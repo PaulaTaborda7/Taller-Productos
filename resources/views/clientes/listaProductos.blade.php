@@ -33,7 +33,7 @@
                                 <input type="text" value = '{{ $cliente->id }}' name="idCliente" hidden>
                                 <input type="text" value = '{{ $producto->producto_id }}' name="idProducto" hidden>
                                 @csrf
-                                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar">
+                                <input class="btn btn-success" type="submit" value="Vender">
                             </form>
                         </td>
                     </tr>

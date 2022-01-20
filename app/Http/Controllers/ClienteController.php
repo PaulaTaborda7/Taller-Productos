@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Venta;
+use App\Models\Productos;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -108,7 +109,7 @@ class ClienteController extends Controller
 
     public function crearVenta($id){
         $productos = Productos::all();
-        $cliente = Cliente::where('id', $id)->get();
+        $cliente = Cliente::where('id', $id)->first(); //Así devolvería un solo valor
         return view('clientes.listaProductos', compact('productos', 'cliente'));
     }
 
