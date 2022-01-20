@@ -107,7 +107,9 @@ class ClienteController extends Controller
     }
 
     public function crearVenta($id){
-        return view('clientes.listaProductos');
+        $productos = Productos::all();
+        $cliente = Cliente::where('id', $id);
+        return view('clientes.listaProductos', compact('productos', 'cliente'));
     }
 
     public function registrarVenta(Request $request){
