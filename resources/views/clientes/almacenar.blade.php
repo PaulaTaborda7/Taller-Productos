@@ -24,7 +24,7 @@
 
             <div class="col-md-8">
 				<label for="validationCustom02" class="form-label">telefono</label>
-				<input type="number" class="form-control" id="validationCustom02" name="Telefono" placeholder="Teléfono" required>
+				<input type="number" class="form-control" id="validationCustom02" name="telefono" placeholder="Teléfono" required>
 			</div>
 
             <div class="col-md-8">
