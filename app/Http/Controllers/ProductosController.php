@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
+use Illuminate\Support\Facades\Storage;
 
 class ProductosController extends Controller
 {
@@ -94,7 +95,16 @@ class ProductosController extends Controller
         $producto->nombre = $request->nombre;
         $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
-        $producto->imagen = 'Imagen de prueba';
+        //Si en el formulario se adjuntó una NUEVA foto...
+        if($request->hasFile('imagen')){
+            //Obtenemos la información del producto
+            $producto = Productos::findOrFail($id);
+            //Borramos de la carpeta public aquella imagen que tenga la misma ruta que $empleado->foto
+            Storage::delete('public/'.$producto->imagen);
+
+            //Suba la NUEVA foto a la carpeta uploads en public y en el JSON guarde la dirección de la foto
+            $producto->imagen = $request->file('imagen')->store('uploads', 'public');
+        }
         $producto->save();
 
         return redirect()->route('productos.index');
