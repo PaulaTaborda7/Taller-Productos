@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VentaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,5 @@ Route::delete('/clientes/destroy/{id}', [ClienteController::class,'destroy'])->n
 Route::get('/clientes/crearVenta/{id}', [ClienteController::class,'crearVenta'])->name('clientes.crearVenta');
 Route::post('/clientes/registrarVenta', [ClienteController::class,'registrarVenta'])->name('clientes.registrarVenta');
 
+// Rutas para las ventas
+Route::get('/ventas/', [VentaController::class,'index'])->name('ventas.index');
