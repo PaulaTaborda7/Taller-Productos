@@ -109,7 +109,7 @@ class ClienteController extends Controller
 
     public function crearVenta($id){
         $productos = Productos::all();
-        $cliente = Cliente::where('id', $id)->get();
+        $cliente = Cliente::where('id', $id)->first(); //Así devolvería un solo valor
         return view('clientes.listaProductos', compact('productos', 'cliente'));
     }
 
