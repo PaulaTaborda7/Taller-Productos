@@ -63,9 +63,10 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+        return view('clientes.formEditar')->with('cliente',$cliente);
     }
 
     /**
@@ -75,9 +76,24 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Cliente $id)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'correo' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+        ]);
+
+        $cliente = Cliente::find($id);
+
+        $cliente->nombre = $request->nombre;
+        $cliente->correo = $request->correo;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->save();
+
+        return redirect()->route('clientes.index');
     }
 
     /**
