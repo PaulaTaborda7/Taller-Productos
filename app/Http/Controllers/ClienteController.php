@@ -85,13 +85,9 @@ class ClienteController extends Controller
             'direccion' => 'required',
         ]);
 
-        $cliente = Cliente::find($id);
+        $nuevosDatos = request()->except(['_token', '_method']);
 
-        $cliente->nombre = $request->nombre;
-        $cliente->correo = $request->correo;
-        $cliente->telefono = $request->telefono;
-        $cliente->direccion = $request->direccion;
-        $cliente->save();
+        Cliente::where('id', '=', $id)->update($nuevosDatos);
 
         return redirect()->route('clientes.index');
     }

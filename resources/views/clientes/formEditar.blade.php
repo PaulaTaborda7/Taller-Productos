@@ -9,7 +9,7 @@
 
 		<form class="row g-4" action="{{ route('clientes.update', $cliente->id) }}" method="POST" enctype="multipart/form-data">
             {{-- Token de seguridad --}}
-            @METHOD('PUT')
+            @METHOD('PATCH')
             @csrf
 
 
@@ -25,7 +25,7 @@
 
             <div class="col-md-8">
 				<label for="validationCustom02" class="form-label">telefono</label>
-				<input type="number" class="form-control" id="validationCustom02" name="Telefono" placeholder="Teléfono" required value = "{{ $cliente->telefono }}">
+				<input type="number" class="form-control" id="validationCustom02" name="telefono" placeholder="Teléfono" required value = "{{ $cliente->telefono }}">
 			</div>
 
             <div class="col-md-8">
@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="col-md-12" id="B_Agregar">
-				<input type="submit" class="btn btn-success" value="Editar" name="save"><i class="bi bi-node-plus"></i>
+				<input type="submit" class="btn btn-success" value="Editar"><i class="bi bi-node-plus"></i>
 			</div>
 		</form>
 	</div>
