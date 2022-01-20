@@ -76,7 +76,7 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $id)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'nombre' => 'required',

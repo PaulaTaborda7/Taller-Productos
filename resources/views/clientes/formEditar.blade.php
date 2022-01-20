@@ -9,6 +9,7 @@
 
 		<form class="row g-4" action="{{ route('clientes.update', $cliente->id) }}" method="POST" enctype="multipart/form-data">
             {{-- Token de seguridad --}}
+            @METHOD('PUT')
             @csrf
 
 
