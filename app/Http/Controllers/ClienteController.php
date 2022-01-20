@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Venta;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -102,6 +103,18 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::where('id', $id);
         $cliente->delete();
+        return redirect()->route('clientes.index');
+    }
+
+    public function crearVenta($id){
+        return view('clientes.listaProductos');
+    }
+
+    public function registrarVenta(Request $request){
+        $nuevaVenta = new Venta();
+        $nuevaVenta->idCliente = $request->idCliente;
+        $nuevaVenta->idProducto = $request->idProducto;
+        $nuevaVenta->save();
         return redirect()->route('clientes.index');
     }
 }
