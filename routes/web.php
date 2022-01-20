@@ -22,7 +22,7 @@ Route::resource('productos',ProductosController::class);
 // Rutas para el CRUD de clientes
 Route::get('/clientes/', [ClienteController::class,'index'])->name('clientes.index');
 Route::get('/clientes/create', [ClienteController::class,'create'])->name('clientes.create');
-Route::post('/clientes/save', [ClienteController::class,'save'])->name('clientes.save');
+Route::post('/clientes/store', [ClienteController::class,'store'])->name('clientes.store');
 Route::get('/clientes/edit', [ClienteController::class,'edit'])->name('clientes.edit');
 Route::patch('/clientes/update', [ClienteController::class,'update'])->name('clientes.update');
 Route::delete('/clientes/destroy', [ClienteController::class,'destroy'])->name('clientes.destroy');
