@@ -29,7 +29,7 @@
 
 			<div class="col-md-8">
 				<label for="ArchivoIMG" class="form-label">Archivo de Imagen</label>
-				<input type="file" class="form-control" id="ArchivoIMG" name="imagen" placeholder="img/mouse.png">
+				<input type="file" class="form-control" id="ArchivoIMG" name="imagen" placeholder="img/mouse.png" required>
 			</div>
 
 			<div class="col-md-12" id="B_Agregar">
