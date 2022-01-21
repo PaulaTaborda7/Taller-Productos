@@ -15,7 +15,7 @@ class VentaController extends Controller
     public function index()
     {
         $ventas = Venta::all();
-        return view('ventas.index')->with('ventas',$ventas);//
+        return view('ventas.index')->with('ventas',$ventas);//Me retorna la vista de ventas y que valla con las ventas de la BD
     }
 
     /**
