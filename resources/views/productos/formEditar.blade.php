@@ -28,12 +28,13 @@
 
 			<div class="col-md-8">
 				<label for="ArchivoIMG" class="form-label">Archivo de Imagen</label>
-                {{ $producto->imagen }}
+                <p>Esta es la imagen actual que se tiene del producto, si deseas modificarla da click en Seleccionar archivo, de lo contrario no hagas ninguna selección. </p>
+                <img src="{{ asset('storage').'/'.$producto->imagen}}" alt="" width="20%">
 				<input type="file" class="form-control" id="ArchivoIMG" name="imagen" placeholder="img/mouse.png">
 			</div>
 
 			<div class="col-md-12" id="B_Agregar">
-				<input type="submit" class="btn btn-success" value="Agregar" name="save"><i class="bi bi-node-plus"></i>
+				<input type="submit" class="btn btn-success" value="Editar"><i class="bi bi-node-plus"></i>
 			</div>
 		</form>
 	</div>
