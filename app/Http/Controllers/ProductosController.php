@@ -43,9 +43,6 @@ class ProductosController extends Controller
         $producto->nombre = $request->nombre;
         $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
-        if($request->hasFile('imagen')){
-            $producto->imagen = $request->file('imagen')->store('uploads','public');
-        }
         $producto->save();
 
         return redirect()->route('productos.index');
@@ -71,7 +68,7 @@ class ProductosController extends Controller
     public function edit($id)
     {
         $producto = Productos::find($id);
-        return view('productos.formEditar')->with('producto',$producto);
+        return view('productos.Editar')->with('producto',$producto);
     }
 
     /**
@@ -94,7 +91,6 @@ class ProductosController extends Controller
         $producto->nombre = $request->nombre;
         $producto->precio = $request->precio;
         $producto->descripcion = $request->descripcion;
-        $producto->imagen = 'Imagen de prueba';
         $producto->save();
 
         return redirect()->route('productos.index');

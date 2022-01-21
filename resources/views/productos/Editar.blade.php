@@ -16,26 +16,27 @@
 	<div class="container" id="formularioAgregar">
 		<h2 class="text-center"><i class="bi bi-node-plus"></i> Diligencia todos los campos</h2>
 
-		<form class="row g-4" action="{{ route('productos.store') }}" method="POST">
+		<form class="row g-4" action="{{ route('productos.update', $producto->producto_id) }}" method="POST">
+            @method('PUT')
             @csrf
-
-
 			<div class="col-md-8">
 				<label for="nombre" class="form-label">Nombre</label>
-				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required value="{{ $producto->nombre }}">
 			</div>
 
 			<div class="col-md-4">
 				<label for="precio" class="form-label">Precio</label>
-				<input type="number" class="form-control" id="precio" name="precio" placeholder="Su precio aquí" required>
+				<input type="number" class="form-control" id="precio" name="precio" placeholder="Su precio aquí" required value="{{ $producto->precio }}">
 			</div>
 
             <div class="col-md-8">
 				<label for="descripcion" class="form-label">Descripción</label>
-				<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Nombre" required>
+				<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Nombre" required value="{{ $producto->descripcion }}">
 			</div>
+
+
 			<div class="col-md-12" id="B_Agregar">
-				<input type="submit" class="btn btn-success" value="Agregar" name="save"><i class="bi bi-node-plus"></i>
+				<input type="submit" class="btn btn-success" value="Agregar"><i class="bi bi-node-plus"></i>
 			</div>
 		</form>
 	</div>
