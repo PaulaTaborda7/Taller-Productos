@@ -11,8 +11,8 @@
             <thead>
                 <tr>
                     <th>N.Venta</th>
-                    <th>Producto</th>
                     <th>Cliente</th>
+                    <th>Producto</th>
 
                 </tr>
             </thead>
@@ -22,15 +22,14 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>
                             @php
-                                use App\Models\Cliente;
-                                $cliente = Cliente::where('id',$venta->idCliente)->first()
-                            echo $producto->nombre
+                                $cliente = App\Models\Cliente::where('id',$venta->idCliente)->first();
+                                echo $cliente->nombre;
                             @endphp
                         </td>
                         <td>
                             @php
-                                use App\Models\Productos;
-                                $producto = Productos::where('id', $venta->idProducto)->first()
+                                $producto = App\Models\Productos::where('producto_id', $venta->idProducto)->first();
+                                echo $producto->nombre;
                             @endphp
                         </td>
 
