@@ -52,8 +52,8 @@
             <tfoot>
                 <tr>
                     <th>N.Venta</th>
-                    <th>Producto</th>
                     <th>Cliente</th>
+                    <th>Producto</th>
                 </tr>
             </tfoot>
         </table>
