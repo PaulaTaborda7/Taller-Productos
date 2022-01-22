@@ -4,7 +4,7 @@
 <body>
     <div class="container text-center">
 
-        <h1>Ventas: - {{ count($ventas) }}</h1>
+        <h1>Ventas: {{ count($ventas) }}</h1>
 
 
         <table id="example" class="table table-striped" style="width:100%">

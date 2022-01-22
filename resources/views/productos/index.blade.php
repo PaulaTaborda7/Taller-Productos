@@ -4,7 +4,7 @@
 <body>
     <div class="container text-center">
 
-        <h1>Productos - {{ count($productos) }}</h1>
+        <h1>Productos: {{ count($productos) }}</h1>
 
         <a href="{{ route("productos.create") }}">
             <button class="btn btn-success">
