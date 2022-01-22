@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="col-md-12" id="B_Agregar">
-				<input type="submit" class="btn btn-success" value="Agregar" name="save"><i class="bi bi-node-plus"></i>
+				<input type="submit" class="btn btn-success" value="Editar"><i class="bi bi-node-plus"></i>
 			</div>
 		</form>
 	</div>
