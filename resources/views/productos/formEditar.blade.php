@@ -28,7 +28,8 @@
 
 			<div class="col-md-8">
 				<label for="ArchivoIMG" class="form-label">Archivo de Imagen</label>
-                {{ $producto->imagen }}
+                <p>Esta es la imagen actual que tienes, si deseas cambiarla selecciona un nuevo archivo, de lo contrario, no selecciones nada</p>
+                <img id="imagenDT" src="{{ asset('storage').'/'.$producto->imagen}}" alt="">
 				<input type="file" class="form-control" id="ArchivoIMG" name="imagen" placeholder="img/mouse.png">
 			</div>
 
